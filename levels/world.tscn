@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkntu1jek5dhh" path="res://player/player.tscn" id="2_gi432"]
 [ext_resource type="Texture2D" uid="uid://bcfp0ua1a75ty" path="res://assets/9b008f67224ff330cfec2ff3f9208f77.jpg" id="3_ywq7f"]
-[ext_resource type="PackedScene" uid="uid://bfsb067t2j8fk" path="res://scripts/killzone.tscn" id="4_hsdm0"]
+[ext_resource type="PackedScene" uid="uid://bfsb067t2j8fk" path="res://scenes/killzone.tscn" id="4_hsdm0"]
 
 [sub_resource type="TileSet" id="TileSet_y11u7"]
 physics_layer_0/collision_layer = 2
@@ -37,20 +37,20 @@ centered = false
 [node name="killzone" parent="." instance=ExtResource("4_hsdm0")]
 position = Vector2(-7, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killzone"]
 position = Vector2(318, 139)
 shape = SubResource("RectangleShape2D_edrxh")
 
 [node name="killzone2" parent="." instance=ExtResource("4_hsdm0")]
 position = Vector2(208, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killzone2"]
 position = Vector2(310, 139)
 shape = SubResource("RectangleShape2D_edrxh")
 
 [node name="killzone3" parent="." instance=ExtResource("4_hsdm0")]
 position = Vector2(132, -78)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killzone3"]
 position = Vector2(310, 143)
 shape = SubResource("RectangleShape2D_edrxh")

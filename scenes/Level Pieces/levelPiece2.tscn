@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnjfsfokreb08"]
+[gd_scene load_steps=9 format=3 uid="uid://blpx15eykv3d4"]
 
-[ext_resource type="Script" path="res://scripts/levelPiece.gd" id="1_fi1vm"]
-[ext_resource type="Texture2D" uid="uid://ck6ogk58eskyy" path="res://assets/island of loss/Map Tielset.png" id="2_ccrxr"]
+[ext_resource type="Script" path="res://scripts/levelPiece.gd" id="1_kht21"]
+[ext_resource type="Texture2D" uid="uid://ck6ogk58eskyy" path="res://assets/island of loss/Map Tielset.png" id="2_i46rg"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="3_ui20b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhtud"]
-texture = ExtResource("2_ccrxr")
+texture = ExtResource("2_i46rg")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -629,14 +630,24 @@ texture = ExtResource("2_ccrxr")
 physics_layer_0/collision_layer = 2
 sources/2 = SubResource("TileSetAtlasSource_qhtud")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjge3"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laku7"]
+size = Vector2(46.5, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kru3e"]
+size = Vector2(47.5, 48)
+
 [node name="LevelPiece" type="Node2D"]
-script = ExtResource("1_fi1vm")
+script = ExtResource("1_kht21")
+metadata/_edit_horizontal_guides_ = [160.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_njs01")
 format = 2
 layer_0/name = "terrains"
-layer_0/tile_data = PackedInt32Array(327680, 524290, 2, 655360, 524290, 2, 983040, 524290, 2, 327681, 524290, 2, 655361, 524290, 2, 983041, 524290, 2, 327682, 524290, 2, 655362, 524290, 2, 983042, 524290, 2, 327683, 524290, 2, 655363, 524290, 2, 983043, 524290, 2, 327684, 524290, 2, 655364, 524290, 2, 983044, 524290, 2, 327685, 524290, 2, 655365, 524290, 2, 983045, 524290, 2, 327686, 524290, 2, 655366, 524290, 2, 983046, 524290, 2, 327687, 524290, 2, 655367, 524290, 2, 983047, 524290, 2, 327688, 524290, 2, 655368, 524290, 2, 983048, 524290, 2, 327689, 524290, 2, 655369, 524290, 2, 983049, 524290, 2, 327690, 524290, 2, 655370, 524290, 2, 983050, 524290, 2, 327691, 524290, 2, 655371, 524290, 2, 983051, 524290, 2, 327692, 524290, 2, 655372, 524290, 2, 983052, 524290, 2, 327693, 524290, 2, 655373, 524290, 2, 983053, 524290, 2, 327694, 524290, 2, 655374, 524290, 2, 983054, 524290, 2, 327695, 524290, 2, 655375, 524290, 2, 983055, 524290, 2, 327696, 524290, 2, 655376, 524290, 2, 983056, 524290, 2, 327697, 524290, 2, 655377, 524290, 2, 983057, 524290, 2, 327698, 524290, 2, 655378, 524290, 2, 983058, 524290, 2, 327699, 524290, 2, 655379, 524290, 2, 983059, 524290, 2, 327700, 524290, 2, 655380, 524290, 2, 983060, 524290, 2, 917514, 458754, 11, 851978, 458754, 11, 786442, 458754, 11, 917518, 458754, 11, 851982, 458754, 11, 786446, 458754, 11, 589842, 458754, 11, 524306, 458754, 11, 458770, 458754, 11, 262151, 458754, 11, 196615, 458754, 11, 131079, 458754, 11)
+layer_0/tile_data = PackedInt32Array(327680, 524290, 2, 655360, 524290, 2, 983040, 524290, 2, 327681, 524290, 2, 655361, 524290, 2, 983041, 524290, 2, 327682, 524290, 2, 655362, 524290, 2, 983042, 524290, 2, 327683, 524290, 2, 655363, 524290, 2, 983043, 524290, 2, 327684, 524290, 2, 655364, 524290, 2, 983044, 524290, 2, 327685, 524290, 2, 655365, 524290, 2, 983045, 524290, 2, 327686, 524290, 2, 655366, 524290, 2, 983046, 524290, 2, 327687, 524290, 2, 655367, 524290, 2, 983047, 524290, 2, 327688, 524290, 2, 655368, 524290, 2, 983048, 524290, 2, 327689, 524290, 2, 655369, 524290, 2, 983049, 524290, 2, 655370, 524290, 2, 983050, 524290, 2, 655371, 524290, 2, 983051, 524290, 2, 655372, 524290, 2, 983052, 524290, 2, 655373, 524290, 2, 983053, 524290, 2, 655374, 524290, 2, 983054, 524290, 2, 655375, 524290, 2, 983055, 524290, 2, 655376, 524290, 2, 983056, 524290, 2, 655377, 524290, 2, 983057, 524290, 2, 655378, 524290, 2, 983058, 524290, 2, 655379, 524290, 2, 983059, 524290, 2, 655380, 524290, 2, 983060, 524290, 2, 327690, 524290, 2, 327691, 524290, 2, 327692, 524290, 2, 327693, 524290, 2, 327694, 524290, 2, 327695, 524290, 2, 327699, 524290, 2, 327700, 524290, 2, 327698, 524290, 2, 327697, 524290, 2, 327696, 524290, 2, 917510, 524290, 14, 917511, 524290, 14, 851975, 524290, 14, 917512, 524290, 14, 851976, 524290, 14, 851974, 524290, 14, 786438, 524290, 14, 786439, 524290, 14, 786440, 524290, 14, 589834, 524290, 14, 589835, 524290, 14, 524299, 524290, 14, 524300, 524290, 14, 458763, 524290, 14, 458764, 524290, 14, 458762, 524290, 14, 524298, 524290, 14, 589836, 524290, 14, 262163, 524290, 14, 196628, 524290, 14, 196627, 524290, 14, 262164, 524290, 14, 131091, 524290, 14, 131092, 524290, 14, 262162, 524290, 14, 196626, 524290, 14, 131090, 524290, 14)
 layer_1/name = "decors"
 layer_1/tile_data = PackedInt32Array(65541, 65537, 1, 262149, 196609, 6, 262148, 131073, 6, 262151, 458753, 6, 262152, 524289, 6, 65555, 65537, 1, 262163, 196609, 6, 262162, 131073, 6)
 
@@ -647,3 +658,39 @@ position = Vector2(336, 0)
 offset_left = -16.0
 offset_bottom = 16.0
 color = Color(0, 0, 1, 1)
+
+[node name="Killzones" type="Node2D" parent="."]
+
+[node name="killzone" type="Area2D" parent="Killzones"]
+position = Vector2(298, 70)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("3_ui20b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/killzone"]
+position = Vector2(14, -14)
+shape = SubResource("RectangleShape2D_xjge3")
+
+[node name="killzone2" type="Area2D" parent="Killzones"]
+position = Vector2(107, 230)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("3_ui20b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/killzone2"]
+position = Vector2(12.75, -14.5)
+shape = SubResource("RectangleShape2D_laku7")
+
+[node name="killzone4" type="Area2D" parent="Killzones"]
+position = Vector2(171, 150)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("3_ui20b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzones/killzone4"]
+position = Vector2(12.25, -14)
+shape = SubResource("RectangleShape2D_kru3e")
+
+[connection signal="area_entered" from="Killzones/killzone" to="Killzones/killzone" method="_on_area_entered"]
+[connection signal="area_entered" from="Killzones/killzone2" to="Killzones/killzone2" method="_on_area_entered"]
+[connection signal="area_entered" from="Killzones/killzone4" to="Killzones/killzone4" method="_on_area_entered"]
