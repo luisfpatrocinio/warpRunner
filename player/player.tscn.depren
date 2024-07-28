@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkntu1jek5dhh"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_ifc87"]
+[ext_resource type="Texture2D" uid="uid://c0exuwox1c0g" path="res://assets/AnimationSheet_Character.png" id="1_qt2ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2d2i"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iye0n"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33ku5"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjwcj"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbtxk"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37rhb"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0xdj"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxp6i"]
+atlas = ExtResource("1_qt2ni")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0p03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2d2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iye0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33ku5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjwcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbtxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37rhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0xdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxp6i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uc3w"]
+size = Vector2(16, 23.5)
+
+[node name="player" type="Area2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_ifc87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_b0p03")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.0211837
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_4uc3w")
+
+[node name="TeleportTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]

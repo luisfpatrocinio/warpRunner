@@ -1,38 +1,45 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkntu1jek5dhh"]
+[gd_scene load_steps=15 format=3 uid="uid://bkntu1jek5dhh"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_ifc87"]
-[ext_resource type="Texture2D" uid="uid://c0exuwox1c0g" path="res://assets/AnimationSheet_Character.png" id="1_qt2ni"]
+[ext_resource type="Shader" path="res://shaders/warp.gdshader" id="1_n8ant"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_w6m45"]
+[ext_resource type="Texture2D" uid="uid://c0exuwox1c0g" path="res://assets/AnimationSheet_Character.png" id="2_avhfc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_due1h"]
+shader = ExtResource("1_n8ant")
+shader_parameter/start_frame = 0
+shader_parameter/current_frame = 0
+shader_parameter/mix_ratio = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2d2i"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(192, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iye0n"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33ku5"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjwcj"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbtxk"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_37rhb"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0xdj"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxp6i"]
-atlas = ExtResource("1_qt2ni")
+atlas = ExtResource("2_avhfc")
 region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b0p03"]
@@ -71,11 +78,10 @@ animations = [{
 size = Vector2(16, 23.5)
 
 [node name="player" type="Area2D"]
-collision_layer = 7
-collision_mask = 7
-script = ExtResource("1_ifc87")
+script = ExtResource("1_w6m45")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_due1h")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_b0p03")
 animation = &"walk"

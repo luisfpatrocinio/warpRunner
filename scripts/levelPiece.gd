@@ -1,5 +1,4 @@
 extends Node2D
-class_name LevelPiece
 
 @onready var endPoint = get_node("EndPoint");
 

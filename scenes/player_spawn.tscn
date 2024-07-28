@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca7xu4tnyy7e2"]
+
+[ext_resource type="Script" path="res://scripts/PlayerSpawn.gd" id="1_pjwyh"]
+
+[sub_resource type="Gradient" id="Gradient_hwdfc"]
+offsets = PackedFloat32Array(0, 0.309927, 0.905569, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.683077, 0.683077, 0.683077, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_0rruh"]
+offsets = PackedFloat32Array(0, 0.598063, 1)
+colors = PackedColorArray(0.945098, 0.945098, 0.945098, 0, 0.94431, 0.94431, 0.94431, 1, 1, 1, 1, 0)
+
+[node name="PlayerSpawn" type="Node2D"]
+script = ExtResource("1_pjwyh")
+
+[node name="Back" type="CPUParticles2D" parent="."]
+position = Vector2(0, -16)
+amount = 96
+lifetime = 2.0
+explosiveness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(6, 16)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 6.0
+orbit_velocity_min = 0.2
+orbit_velocity_max = 0.75
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0.482353, 0, 0.584314, 1)
+color_ramp = SubResource("Gradient_hwdfc")
+
+[node name="Front" type="CPUParticles2D" parent="."]
+position = Vector2(0, -16)
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector2(0, -1)
+spread = 0.0
+gravity = Vector2(0, -3)
+initial_velocity_min = 6.9
+initial_velocity_max = 24.0
+color = Color(0.698039, 0, 1, 1)
+color_ramp = SubResource("Gradient_0rruh")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

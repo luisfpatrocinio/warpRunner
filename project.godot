@@ -12,14 +12,19 @@ config_version=5
 
 config/name="Game Jam 1"
 run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.0", "GL Compatibility")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scenes/global.tscn"
 
 [display]
 
-window/size/viewport_width=650
-window/size/viewport_height=250
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/stretch/mode="viewport"
+window/stretch/scale=2.0
 
 [layer_names]
 
@@ -30,6 +35,6 @@ window/stretch/mode="viewport"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/canvas_textures/default_texture_filter=0

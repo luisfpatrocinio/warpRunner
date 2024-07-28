@@ -1,6 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://c54aiv6t100u1"]
+[gd_scene load_steps=16 format=3 uid="uid://c54aiv6t100u1"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_mhv17"]
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_f6uh7"]
+[ext_resource type="PackedScene" uid="uid://cnjfsfokreb08" path="res://scenes/Level Pieces/levelPiece1.tscn" id="2_2niqs"]
+[ext_resource type="PackedScene" uid="uid://blpx15eykv3d4" path="res://scenes/Level Pieces/levelPiece2.tscn" id="3_6ivfn"]
+[ext_resource type="PackedScene" uid="uid://d3epswnqil1vo" path="res://scenes/Level Pieces/levelPiece3.tscn" id="4_6a16q"]
+[ext_resource type="PackedScene" uid="uid://plihk2s6kjtm" path="res://scenes/Level Pieces/levelPiece4.tscn" id="5_34jce"]
+[ext_resource type="PackedScene" uid="uid://ibaer0tpuovc" path="res://scenes/Level Pieces/levelPiece5.tscn" id="6_y50xq"]
+[ext_resource type="PackedScene" uid="uid://ds6ei76mjukie" path="res://scenes/Level Pieces/levelPiece6.tscn" id="7_00cni"]
+[ext_resource type="PackedScene" uid="uid://ctyxsmqcsdvca" path="res://scenes/Level Pieces/levelPiece7.tscn" id="8_1durr"]
+[ext_resource type="PackedScene" uid="uid://bwh4c8vxo3t6y" path="res://scenes/Level Pieces/levelPiece8.tscn" id="9_37oxv"]
+[ext_resource type="PackedScene" uid="uid://dt2wghshjdpre" path="res://scenes/Level Pieces/levelPiece9.tscn" id="10_ufgo6"]
 [ext_resource type="Texture2D" uid="uid://dr2h3r52whdu6" path="res://assets/Background - City - 2/Day/1.png" id="11_82rtc"]
 [ext_resource type="Texture2D" uid="uid://bb3xxfk2f51mi" path="res://assets/Background - City - 2/Day/2.png" id="12_y81nc"]
 [ext_resource type="Texture2D" uid="uid://c1ww04h3rh8ru" path="res://assets/Background - City - 2/Day/3.png" id="13_im4gx"]
@@ -8,7 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c7tbm0ks5xhly" path="res://assets/Background - City - 2/Day/5.png" id="15_5xou6"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_mhv17")
+script = ExtResource("1_f6uh7")
+levelPieceScenes = Array[PackedScene]([ExtResource("2_2niqs"), ExtResource("3_6ivfn"), ExtResource("4_6a16q"), ExtResource("5_34jce"), ExtResource("6_y50xq"), ExtResource("7_00cni"), ExtResource("8_1durr"), ExtResource("9_37oxv"), ExtResource("10_ufgo6")])
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -53,54 +63,3 @@ texture = ExtResource("15_5xou6")
 centered = false
 
 [node name="LevelPieces" type="Node2D" parent="."]
-
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="Flash" type="ColorRect" parent="Interface"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Interface"]
-custom_minimum_size = Vector2(960, 8)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -480.0
-offset_top = -16.0
-offset_right = 480.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Interface"]
-custom_minimum_size = Vector2(960, 8)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -480.0
-offset_right = 480.0
-offset_bottom = 16.0
-grow_horizontal = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-color = Color(0, 0, 0, 1)
-
-[node name="ScoreLabel" type="Label" parent="Interface"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -17.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 12
-text = "DISTANCIA: 100M"
-horizontal_alignment = 1
