@@ -12,4 +12,4 @@ func _on_area_entered(area):
 	print("morreu trouxa")
 	if area is Player:
 		if !area.teleporting:
-			area.queue_free()
+			area.die();

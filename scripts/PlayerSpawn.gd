@@ -21,5 +21,5 @@ func _on_timer_timeout():
 
 
 func _on_destroy_timer_timeout():
-	get_parent().gameSpeed = 1.0;
+	get_parent().showingInstructions = true;
 	queue_free();

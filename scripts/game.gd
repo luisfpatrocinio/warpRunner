@@ -21,6 +21,8 @@ var lanesPosY = [80, 160, 240];
 	preload("res://scenes/Level Pieces/levelPiece9.tscn"),
 ];
 
+var gameStarted : bool = false;
+
 ## Velocidade em que os objetos se moverão dentro do jogo.
 @export var gameSpeed : float = 0.0;
 
@@ -33,8 +35,15 @@ var lanesPosY = [80, 160, 240];
 @onready var flashAmount : float = 0.0;
 
 var traveledDistance: float = 0.0;
+var showingInstructions: bool = false;
+
+var gameOver : bool = false;
 
 func _ready():
+	# Instruções começam invisíveis.
+	var _instructions = interfaceNode.get_node("Instructions") as Control;
+	_instructions.modulate.a = 0.0;
+	
 	Global.playBGM("game");
 	Global.levelRef = self;
 	createFirstLevelPieces();
@@ -42,13 +51,32 @@ func _ready():
 	interfaceNode.get_node("Flash").visible = false;
 
 func _process(delta):
+	var _canMove = gameStarted and !gameOver;
+	gameSpeed = move_toward(gameSpeed, float(_canMove), 0.069 / 2.0);
 	tryToCreatePieces();
 	parallaxBackground.scroll_base_offset.x -= gameSpeed;
 	manageFlash();
 	manageScore();
+	manageInstructions();
+
+func manageInstructions():
+	var _instructions = interfaceNode.get_node("Instructions") as Control;
+	_instructions.modulate.a = move_toward(_instructions.modulate.a, float(showingInstructions), 0.069);
+	
+	if Input.is_action_just_pressed("ui_accept") and showingInstructions and !gameStarted:
+		showingInstructions = false;
+		await get_tree().create_timer(0.75).timeout;
+		gameStarted = true;
+
+func startGame():
+	gameStarted = true;
 
 func manageScore():
-	traveledDistance += gameSpeed/10;
+	# Aumentar pontuação caso o jogo não tenha acabado.
+	if !gameOver:
+		traveledDistance += gameSpeed/10;
+	
+	# Atualizar texto da pontuação.
 	var _scoreLabel = interfaceNode.get_node("ScoreLabel") as Label;
 	_scoreLabel.text = str("%0.1f" % [traveledDistance]) + "m";
 

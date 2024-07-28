@@ -14,7 +14,7 @@ func _process(delta):
 	appearingProgress = move_toward(appearingProgress, 1.0, 0.069);
 	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and !teleporting:
+	if Input.is_action_just_pressed("ui_accept") and !teleporting and get_parent().gameStarted:
 		actualHeight -= 1;		
 		actualHeight = wrap(actualHeight, 0, 3);
 		teleporting = true;
@@ -28,6 +28,10 @@ func _process(delta):
 	manageWarpEffect();
 	manageAnimation();
 		
+
+func die():
+	get_parent().gameOver = true;
+	queue_free();
 
 ## Fim do tempo de teleporte.
 func _on_teleport_timer_timeout():
