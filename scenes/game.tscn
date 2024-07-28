@@ -1,11 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqur2eepibk10"]
+[gd_scene load_steps=12 format=3 uid="uid://c54aiv6t100u1"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_uw75g"]
-[ext_resource type="PackedScene" uid="uid://cnjfsfokreb08" path="res://scenes/Level Pieces/levelPiece.tscn" id="2_d1ie1"]
-[ext_resource type="PackedScene" uid="uid://blpx15eykv3d4" path="res://scenes/Level Pieces/levelPiece2.tscn" id="3_et5qr"]
+[ext_resource type="PackedScene" uid="uid://cnjfsfokreb08" path="res://scenes/Level Pieces/levelPiece1.tscn" id="2_d5d12"]
+[ext_resource type="Texture2D" uid="uid://bcfp0ua1a75ty" path="res://assets/9b008f67224ff330cfec2ff3f9208f77.jpg" id="2_e2f0i"]
+[ext_resource type="PackedScene" uid="uid://blpx15eykv3d4" path="res://scenes/Level Pieces/levelPiece2.tscn" id="3_iknj3"]
+[ext_resource type="PackedScene" uid="uid://d3epswnqil1vo" path="res://scenes/Level Pieces/levelPiece3.tscn" id="4_g4b56"]
+[ext_resource type="PackedScene" uid="uid://plihk2s6kjtm" path="res://scenes/Level Pieces/levelPiece4.tscn" id="5_ls86j"]
+[ext_resource type="PackedScene" uid="uid://ibaer0tpuovc" path="res://scenes/Level Pieces/levelPiece5.tscn" id="6_unxfs"]
+[ext_resource type="PackedScene" uid="uid://ds6ei76mjukie" path="res://scenes/Level Pieces/levelPiece6.tscn" id="7_3653t"]
+[ext_resource type="PackedScene" uid="uid://ctyxsmqcsdvca" path="res://scenes/Level Pieces/levelPiece7.tscn" id="8_t3hun"]
+[ext_resource type="PackedScene" uid="uid://bwh4c8vxo3t6y" path="res://scenes/Level Pieces/levelPiece8.tscn" id="9_t4pji"]
+[ext_resource type="PackedScene" uid="uid://dt2wghshjdpre" path="res://scenes/Level Pieces/levelPiece9.tscn" id="10_34jw8"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uw75g")
-levelPieceScenes = Array[PackedScene]([ExtResource("2_d1ie1"), ExtResource("3_et5qr")])
+levelPieceScenes = Array[PackedScene]([ExtResource("2_d5d12"), ExtResource("3_iknj3"), ExtResource("4_g4b56"), ExtResource("5_ls86j"), ExtResource("6_unxfs"), ExtResource("7_3653t"), ExtResource("8_t3hun"), ExtResource("9_t4pji"), ExtResource("10_34jw8")])
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.12759, 1)
+texture = ExtResource("2_e2f0i")
+centered = false
 
 [node name="LevelPieces" type="Node2D" parent="."]

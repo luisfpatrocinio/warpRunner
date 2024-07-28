@@ -9,7 +9,7 @@ func _process(delta):
 	pass
 
 func _on_area_entered(area):
-	print("esta colidindo")
+	print("morreu trouxa")
 	if area is Player:
 		if !area.teleporting:
 			area.queue_free()
