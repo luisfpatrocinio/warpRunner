@@ -75,7 +75,7 @@ func manageGameSpeed():
 	var _dist = 120.0;
 	var _canMove = gameStarted and !gameOver;
 	
-	var _speedFactor = 1 + min(floor(traveledDistance / _dist) * 0.20, 2.0);
+	var _speedFactor = 1 + min(floor(traveledDistance / _dist) * 0.10, 1.0);
 	gameSpeed = move_toward(gameSpeed, float(_canMove) * _speedFactor, 0.069 / 2.0);
 
 func manageGameOver():
