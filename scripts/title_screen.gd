@@ -13,15 +13,15 @@ func _ready():
 	startTween.tween_property(gameLogo, "position", Vector2(-2400, 270), 3.0);
 	await startTween.finished;
 	
-	
 	get_tree().create_tween().tween_property($Vignette, "modulate", Color(1, 1, 1, 0.50), 1.0);
 	
 	gameLogo.position = Vector2(960/2, 96);
 	gameLogo.scale = Vector2(1, 1);
 	$Flash.color.a = 1.0
 	animationFinished = true;
-	pass # Replace with function body.
 
+	# TODO: Resetar valores globais.
+	Global.resetValues();
 
 func _process(delta):
 	$Flash.color.a = lerp($Flash.color.a, 0.0, 0.069);
@@ -40,6 +40,12 @@ func _process(delta):
 			$Flash.color.a = 1.0
 			get_tree().create_tween().tween_property($Vignette, "modulate", Color(1, 1, 1, 0.50), 1.0);
 			animationFinished = true;
+	
+	if Global.userdata.get("highScore", 0) > 0:
+		$Labels/ScoreLabel.visible = true;
+		$Labels/ScoreLabel.text = "High Score: " + str(Global.userdata.get("highScore", 0));
+	else:
+		$Labels/ScoreLabel.visible = false;
 
 func _on_press_start_timer_timeout():
 	$Labels/PressStartLabel.visible = !$Labels/PressStartLabel.visible;

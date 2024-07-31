@@ -31,6 +31,11 @@ func _process(delta):
 
 func die():
 	get_parent().gameOver = true;
+	if Global.playerScore > Global.highScore:
+		Global.userdata["highScore"] = Global.playerScore;
+		Global.newHighScore = true;
+		Global.save_game();
+		
 	queue_free();
 
 ## Fim do tempo de teleporte.

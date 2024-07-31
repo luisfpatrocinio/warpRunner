@@ -52,14 +52,14 @@ func _ready():
 	interfaceNode.get_node("Flash").visible = false;
 
 func _process(delta):
-	var _canMove = gameStarted and !gameOver;
-	gameSpeed = move_toward(gameSpeed, float(_canMove), 0.069 / 2.0);
+	
 	tryToCreatePieces();
 	parallaxBackground.scroll_base_offset.x -= gameSpeed;
 	manageFlash();
 	manageScore();
 	manageInstructions();
 	manageGameOver();
+	manageGameSpeed();
 
 func manageInstructions():
 	var _instructions = interfaceNode.get_node("Instructions") as Control;
@@ -69,6 +69,14 @@ func manageInstructions():
 		showingInstructions = false;
 		await get_tree().create_timer(0.75).timeout;
 		gameStarted = true;
+
+func manageGameSpeed():
+	# O valor da gameSpeed será ajustado de acordo com a distancia percorrida.
+	var _dist = 120.0;
+	var _canMove = gameStarted and !gameOver;
+	
+	var _speedFactor = 1 + min(floor(traveledDistance / _dist) * 0.20, 2.0);
+	gameSpeed = move_toward(gameSpeed, float(_canMove) * _speedFactor, 0.069 / 2.0);
 
 func manageGameOver():
 	var _gameOver = interfaceNode.get_node("GameOver") as Control;
@@ -85,10 +93,12 @@ func manageGameOver():
 		
 		var _messageLabel = _gameOver.get_node("GameOverLabel");
 		_messageLabel.text = _msg;
-		
-		
+	
 		var _scoreLabel = _gameOver.get_node("ScoreLabel");
 		_scoreLabel.text = "Your score: " + str(Global.playerScore);
+		
+		var _newRecordLabel = _gameOver.get_node("NewRecordLabel");
+		_newRecordLabel.visible = Global.newHighScore;
 		
 		if Input.is_action_just_pressed("ui_accept"):
 			Global.transitionToScene("title");

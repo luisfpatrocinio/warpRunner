@@ -21,6 +21,35 @@ var scenesDict: Dictionary = {
 var playerScore: int = 0;
 var levelRef = null;
 
+var newHighScore: bool = false;
+var highScore: int = 0;
+
+## User save data
+var userdata := {
+	'highScore' : 0
+}
+
+## Saves the game
+func save_game():
+	var save_file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
+	save_file.store_string(JSON.stringify(userdata))
+
+## Loads the game
+func load_game():
+	var save_file = FileAccess.open("user://save_game.dat", FileAccess.READ)
+	if save_file == null:
+		print('No files saved.')
+		return
+		
+	var content = save_file.get_as_text() 
+	var _json_text = JSON.parse_string(content) as Dictionary
+	userdata = _json_text
+	print('File loaded.')
+
+func _ready():
+	load_game();
+	highScore = userdata["highScore"]
+
 func playSFX(sfxKey: String) -> void:
 	var _audioToPlay = soundsDict.get(sfxKey);
 	if _audioToPlay != null:
@@ -38,3 +67,10 @@ func transitionToScene(destinyScene: String) -> void:
 	var _trans = transitionScene.instantiate();
 	_trans.destinyScene = _scene;
 	add_child(_trans);
+
+func resetValues():
+	print("Valores das variáveis resetados.");
+	levelRef = null;
+	newHighScore = false;
+	playerScore = 0;
+	
