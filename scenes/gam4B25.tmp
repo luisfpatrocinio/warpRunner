@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c54aiv6t100u1"]
+[gd_scene load_steps=7 format=3 uid="uid://c54aiv6t100u1"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_mhv17"]
-[ext_resource type="Theme" uid="uid://b5pkdgicw88rx" path="res://Themes/mainTheme.tres" id="7_f2u74"]
-[ext_resource type="PackedScene" uid="uid://bpksafv2ehle8" path="res://scenes/transition_fade_out.tscn" id="7_jdklq"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_mhv17"]
 [ext_resource type="Texture2D" uid="uid://dr2h3r52whdu6" path="res://assets/Background - City - 2/Day/1.png" id="11_82rtc"]
 [ext_resource type="Texture2D" uid="uid://bb3xxfk2f51mi" path="res://assets/Background - City - 2/Day/2.png" id="12_y81nc"]
 [ext_resource type="Texture2D" uid="uid://c1ww04h3rh8ru" path="res://assets/Background - City - 2/Day/3.png" id="13_im4gx"]
@@ -74,7 +72,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -480.0
-offset_top = -32.0
+offset_top = -16.0
 offset_right = 480.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -89,7 +87,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -480.0
 offset_right = 480.0
-offset_bottom = 32.0
+offset_bottom = 16.0
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
@@ -103,8 +101,7 @@ anchor_bottom = 1.0
 offset_top = -17.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("7_f2u74")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 12
 text = "100.0m"
 horizontal_alignment = 1
 
@@ -115,7 +112,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_f2u74")
 
 [node name="InstructionsBackground" type="ColorRect" parent="Interface/Instructions"]
 layout_mode = 1
@@ -124,7 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.627451)
+color = Color(0, 0, 0, 0.470588)
 
 [node name="InstructionsLabel" type="Label" parent="Interface/Instructions"]
 layout_mode = 1
@@ -159,7 +155,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.662745)
+color = Color(0, 0, 0, 0.470588)
 
 [node name="GameOverLabel" type="Label" parent="Interface/GameOver"]
 layout_mode = 1
@@ -168,7 +164,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_f2u74")
 text = "GAME OVER!
 Tap to restart."
 horizontal_alignment = 1
@@ -184,13 +179,6 @@ offset_top = -214.0
 offset_bottom = -165.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("7_f2u74")
 text = "Your score: 200"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TransitionFadeOut" parent="." instance=ExtResource("7_jdklq")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(2, 2)

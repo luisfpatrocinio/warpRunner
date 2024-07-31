@@ -39,10 +39,11 @@ var showingInstructions: bool = false;
 
 var gameOver : bool = false;
 
+
 func _ready():
 	# Instruções começam invisíveis.
-	var _instructions = interfaceNode.get_node("Instructions") as Control;
-	_instructions.modulate.a = 0.0;
+	interfaceNode.get_node("Instructions").modulate.a = 0.0;
+	interfaceNode.get_node("GameOver").modulate.a = 0.0;
 	
 	Global.playBGM("game");
 	Global.levelRef = self;
@@ -58,6 +59,7 @@ func _process(delta):
 	manageFlash();
 	manageScore();
 	manageInstructions();
+	manageGameOver();
 
 func manageInstructions():
 	var _instructions = interfaceNode.get_node("Instructions") as Control;
@@ -67,6 +69,29 @@ func manageInstructions():
 		showingInstructions = false;
 		await get_tree().create_timer(0.75).timeout;
 		gameStarted = true;
+
+func manageGameOver():
+	var _gameOver = interfaceNode.get_node("GameOver") as Control;
+	_gameOver.modulate.a = move_toward(_gameOver.modulate.a, float(gameOver), 0.069);
+	
+	if gameOver:
+		# Definir mensagem aleatória de gameover:
+		var _msg = [
+			"GAME OVER!",
+			"YOU DIED!",
+			"OH NO! YOU DIED!"
+		][0];
+		#].pick_random();
+		
+		var _messageLabel = _gameOver.get_node("GameOverLabel");
+		_messageLabel.text = _msg;
+		
+		
+		var _scoreLabel = _gameOver.get_node("ScoreLabel");
+		_scoreLabel.text = "Your score: " + str(Global.playerScore);
+		
+		if Input.is_action_just_pressed("ui_accept"):
+			Global.transitionToScene("title");
 
 func startGame():
 	gameStarted = true;

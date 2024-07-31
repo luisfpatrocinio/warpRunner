@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bkntu1jek5dhh"]
 
 [ext_resource type="Shader" path="res://shaders/warp.gdshader" id="1_n8ant"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_w6m45"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_yjh0t"]
 [ext_resource type="Texture2D" uid="uid://c0exuwox1c0g" path="res://assets/AnimationSheet_Character.png" id="2_avhfc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_due1h"]
@@ -78,7 +78,7 @@ animations = [{
 size = Vector2(16, 23.5)
 
 [node name="player" type="Area2D"]
-script = ExtResource("1_w6m45")
+script = ExtResource("1_yjh0t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_due1h")

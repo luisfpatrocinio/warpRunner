@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctyxsmqcsdvca"]
 
-[ext_resource type="Script" path="res://scripts/levelPiece.gd" id="1_v05wl"]
+[ext_resource type="Script" path="res://Scripts/levelPiece.gd" id="1_v05wl"]
 [ext_resource type="Texture2D" uid="uid://ck6ogk58eskyy" path="res://assets/island of loss/Map Tielset.png" id="2_l0xsq"]
 [ext_resource type="PackedScene" uid="uid://bfsb067t2j8fk" path="res://scenes/killzone.tscn" id="3_wsk4e"]
 

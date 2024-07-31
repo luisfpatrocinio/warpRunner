@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2mp7mdalsmp1"]
 
-[ext_resource type="Script" path="res://scripts/levelPiece.gd" id="1_aewa8"]
+[ext_resource type="Script" path="res://Scripts/levelPiece.gd" id="1_aewa8"]
 [ext_resource type="Texture2D" uid="uid://ck6ogk58eskyy" path="res://assets/island of loss/Map Tielset.png" id="2_l0xf6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhtud"]

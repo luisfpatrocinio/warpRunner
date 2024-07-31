@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://db33h4amsaocb"]
 
-[ext_resource type="Script" path="res://scripts/coin.gd" id="1_cihdq"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="1_cihdq"]
 [ext_resource type="Texture2D" uid="uid://cv5b1cq0a40ra" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin (16 x 16).png" id="1_qfih3"]
 [ext_resource type="Texture2D" uid="uid://cdikqv6ibu3t2" path="res://assets/Mini FX, Items & UI/Effects/Yellow_Sparkle (16 x 16).png" id="2_76clw"]
 

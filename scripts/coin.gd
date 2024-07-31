@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	print("coletou")
+	Global.playerScore += 50;
 	$anim.play("collect")
 	
 

@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b5pkdgicw88rx"]
+
+[ext_resource type="FontFile" uid="uid://dbuun60j0w0ii" path="res://assets/SpaceGrotesk-VariableFont_wght.ttf" id="1_imidi"]
+
+[resource]
+Label/colors/font_color = Color(1, 0.235294, 0, 1)
+Label/colors/font_outline_color = Color(0.137255, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 8
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_imidi")
