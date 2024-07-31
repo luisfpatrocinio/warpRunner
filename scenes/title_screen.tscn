@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq2du1onlnsnw"]
+[gd_scene load_steps=8 format=3 uid="uid://dq2du1onlnsnw"]
 
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_aty5k"]
 [ext_resource type="PackedScene" uid="uid://bpksafv2ehle8" path="res://scenes/transition_fade_out.tscn" id="1_uldg5"]
 [ext_resource type="Texture2D" uid="uid://cy8olbdnjyclp" path="res://assets/TitleScreen.jpg" id="3_0kdul"]
 [ext_resource type="Theme" uid="uid://b5pkdgicw88rx" path="res://Themes/mainTheme.tres" id="4_mgla6"]
 [ext_resource type="Texture2D" uid="uid://ch3rgmfurfald" path="res://assets/Warp-Runner-30-07-2024.png" id="5_228oy"]
+
+[sub_resource type="Gradient" id="Gradient_2tow6"]
+offsets = PackedFloat32Array(0, 0.517986, 0.995204)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_or31n"]
+gradient = SubResource("Gradient_2tow6")
+fill_to = Vector2(0, 1)
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -27,6 +35,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_0kdul")
 expand_mode = 3
+
+[node name="Vignette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_or31n")
 
 [node name="PressStartTimer" type="Timer" parent="."]
 wait_time = 0.25

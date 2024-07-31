@@ -4,9 +4,18 @@ var pressedStart = false;
 var teleportTimer: float = 0.40;
 var teleportCount: int = 0;
 var animationFinished: bool = false;
+var startTween : Tween = null;
 
 func _ready():
-	await get_tree().create_tween().tween_property(gameLogo, "position", Vector2(-2400, 270), 3.0).finished;
+	Global.playBGM("title");
+	
+	startTween = get_tree().create_tween();
+	startTween.tween_property(gameLogo, "position", Vector2(-2400, 270), 3.0);
+	await startTween.finished;
+	
+	
+	get_tree().create_tween().tween_property($Vignette, "modulate", Color(1, 1, 1, 0.50), 1.0);
+	
 	gameLogo.position = Vector2(960/2, 96);
 	gameLogo.scale = Vector2(1, 1);
 	$Flash.color.a = 1.0
@@ -23,10 +32,13 @@ func _process(delta):
 				pressedStart = true;
 				$PressStartTimer.wait_time = 0.10;
 				$StartTimer.start();
+				Global.playSFX("warp")
 		else:
+			startTween.stop()
 			gameLogo.position = Vector2(960/2, 96);
 			gameLogo.scale = Vector2(1, 1);
 			$Flash.color.a = 1.0
+			get_tree().create_tween().tween_property($Vignette, "modulate", Color(1, 1, 1, 0.50), 1.0);
 			animationFinished = true;
 
 func _on_press_start_timer_timeout():

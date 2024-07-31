@@ -5,6 +5,7 @@ var soundsDict : Dictionary = {
 }
 
 var musicsDict: Dictionary = {
+	"title": preload("res://assets/Futuristic_junk.ogg"),
 	"game": preload("res://assets/on_the_run.ogg")
 }
 
