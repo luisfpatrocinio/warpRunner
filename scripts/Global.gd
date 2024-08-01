@@ -1,18 +1,18 @@
 extends Node
 
 ## Dicionário contendo os sons do jogo
-var soundsDict : Dictionary = {
+@onready var soundsDict : Dictionary = {
 	"warp": preload("res://assets/Magic Cast.wav") # Som do teleporte
 }
 
 ## Dicionário contendo as músicas do jogo
-var musicsDict: Dictionary = {
+@onready var musicsDict: Dictionary = {
 	"title": preload("res://assets/Futuristic_junk.ogg"), 	# Música da tela de título
 	"game": preload("res://assets/on_the_run.ogg") 			# Música do jogo
 }
 
 ## Dicionário contendo as cenas do jogo
-var scenesDict: Dictionary = {
+@onready var scenesDict: Dictionary = {
 	"title": preload("res://scenes/title_screen.tscn"), # Cena da tela de título
 	"game": preload("res://scenes/game.tscn") 			# Cena do jogo
 }
@@ -38,6 +38,11 @@ var userdata := {
 	'highScore' : 0
 }
 
+## Ao iniciar o jogo, carrega o highscore salvo em arquivo e atualiza a variável global.
+func _ready():
+	#load_game();
+	highScore = userdata["highScore"]
+
 ## Saves the game
 func save_game():
 	var save_file = FileAccess.open("user://save_game.dat", FileAccess.WRITE)
@@ -54,11 +59,7 @@ func load_game():
 	var _json_text = JSON.parse_string(content) as Dictionary
 	userdata = _json_text
 	print('File loaded.')
-
-## Ao iniciar o jogo, carrega o highscore salvo em arquivo e atualiza a variável global.
-func _ready():
-	load_game();
-	highScore = userdata["highScore"]
+	
 
 ## Função para tocar efeitos sonoros
 ## sfxKey: chave do efeito sonoro a ser tocado
@@ -81,15 +82,13 @@ func playBGM(bgmKey: String) -> void:
 ## destinyScene: chave da cena de destino
 func transitionToScene(destinyScene: String) -> void:
 	var _scene = Global.scenesDict.get(destinyScene) 	# Obtém a cena a partir do dicionário
+	if _scene == null: return;
 	var _trans = transitionScene.instantiate() 			# Instancia a cena de transição
 	_trans.destinyScene = _scene 						# Define a cena de destino na transição
 	add_child(_trans) 									# Adiciona a transição como filha do nó atual
 
 ## Função para resetar os valores das variáveis globais
 func resetValues():
-	print("Valores das variáveis resetados.") 	# Log para depuração
-	levelRef = null 		# Reseta a referência do nível
-	newHighScore = false 	# Reseta o status de novo recorde
-	playerScore = 0 		# Reseta a pontuação do jogador
-
-	
+	print("Valores das variáveis resetados."); 	# Log para depuração
+	newHighScore = false; 	# Reseta o status de novo recorde
+	playerScore = 0; 		# Reseta a pontuação do jogador

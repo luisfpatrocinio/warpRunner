@@ -45,7 +45,7 @@ func _on_teleport_timer_timeout():
 	teleporting = false;
 
 func manageWarpEffect():
-	myAnim.material.set("shader_parameter/current_frame", Time.get_ticks_msec() / 100)	
+	myAnim.material.set("shader_parameter/current_frame", Time.get_ticks_msec() / 100.0)	
 	myAnim.material.set("shader_parameter/mix_ratio", mixRatio);
 	if teleporting or appearingProgress < 1.0:
 		mixRatio = 1.0;
