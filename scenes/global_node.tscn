@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ng7kj5pdhg0"]
+
+[ext_resource type="Script" path="res://Scripts/Global.gd" id="1_7vdvq"]
+
+[node name="GlobalNode" type="Node"]
+script = ExtResource("1_7vdvq")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]

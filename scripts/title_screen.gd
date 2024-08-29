@@ -8,8 +8,8 @@ var startTween : Tween = null;
 
 
 func _ready():
-	#Global.resetValues();
-	#Global.playBGM("title");
+	Global.resetValues();
+	Global.playBGM("title");
 	
 	startTween = get_tree().create_tween();
 	startTween.tween_property(gameLogo, "position", Vector2(-2400, 270), 3.0);

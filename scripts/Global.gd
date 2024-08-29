@@ -22,7 +22,7 @@ extends Node
 ## Referência ao player de músicas de fundo
 @onready var bgmPlayer : AudioStreamPlayer = get_node("BGMPlayer")
 ## Cena de transição usada ao trocar de cenas
-@export var transitionScene: PackedScene = preload("res://Scenes/transition_fade_in.tscn")
+@onready var transitionScene: PackedScene = preload("res://Scenes/transition_fade_in.tscn")
 
 ## Variável para armazenar a pontuação do jogador
 var playerScore: int = 0
@@ -40,7 +40,7 @@ var userdata := {
 
 ## Ao iniciar o jogo, carrega o highscore salvo em arquivo e atualiza a variável global.
 func _ready():
-	#load_game();
+	load_game();
 	highScore = userdata["highScore"]
 
 ## Saves the game
@@ -81,7 +81,7 @@ func playBGM(bgmKey: String) -> void:
 ## Função para transitar para outra cena
 ## destinyScene: chave da cena de destino
 func transitionToScene(destinyScene: String) -> void:
-	var _scene = Global.scenesDict.get(destinyScene) 	# Obtém a cena a partir do dicionário
+	var _scene = Global.scenesDict.get(destinyScene)	# Obtém a cena a partir do dicionário
 	if _scene == null: return;
 	var _trans = transitionScene.instantiate() 			# Instancia a cena de transição
 	_trans.destinyScene = _scene 						# Define a cena de destino na transição
