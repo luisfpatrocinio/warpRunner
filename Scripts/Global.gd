@@ -22,7 +22,7 @@ extends Node
 ## Referência ao player de músicas de fundo
 @onready var bgmPlayer : AudioStreamPlayer = get_node("BGMPlayer")
 ## Cena de transição usada ao trocar de cenas
-@onready var transitionScene: PackedScene = preload("res://Scenes/transition_fade_in.tscn")
+@onready var transitionScene: PackedScene = preload("res://scenes/transition_fade_in.tscn")
 
 ## Variável para armazenar a pontuação do jogador
 var playerScore: int = 0
