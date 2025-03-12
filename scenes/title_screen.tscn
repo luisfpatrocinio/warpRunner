@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq2du1onlnsnw"]
+[gd_scene load_steps=9 format=3 uid="uid://dq2du1onlnsnw"]
 
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_aty5k"]
 [ext_resource type="PackedScene" uid="uid://bpksafv2ehle8" path="res://scenes/transition_fade_out.tscn" id="1_uldg5"]
 [ext_resource type="Texture2D" uid="uid://cy8olbdnjyclp" path="res://assets/TitleScreen.jpg" id="3_0kdul"]
 [ext_resource type="Theme" uid="uid://b5pkdgicw88rx" path="res://Themes/mainTheme.tres" id="4_mgla6"]
 [ext_resource type="Texture2D" uid="uid://ch3rgmfurfald" path="res://assets/Warp-Runner-30-07-2024.png" id="5_228oy"]
+[ext_resource type="Texture2D" uid="uid://2pufia36wmuv" path="res://assets/Labiras_Logo.png" id="5_qmye7"]
 
 [sub_resource type="Gradient" id="Gradient_2tow6"]
 offsets = PackedFloat32Array(0, 0.517986, 0.995204)
@@ -56,6 +57,11 @@ position = Vector2(2400, 270)
 scale = Vector2(3, 3)
 texture = ExtResource("5_228oy")
 
+[node name="LabirasLogo" type="Sprite2D" parent="."]
+position = Vector2(480, 522)
+scale = Vector2(0.257576, 0.257576)
+texture = ExtResource("5_qmye7")
+
 [node name="LogoTeleportTimer" type="Timer" parent="."]
 wait_time = 0.3
 
@@ -99,9 +105,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 54.0
-offset_top = 458.0
+offset_top = 424.0
 offset_right = 866.0
-offset_bottom = 500.0
+offset_bottom = 466.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_mgla6")
@@ -116,9 +122,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 319.0
-offset_top = 399.0
+offset_top = 391.0
 offset_right = 601.0
-offset_bottom = 441.0
+offset_bottom = 433.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_mgla6")
