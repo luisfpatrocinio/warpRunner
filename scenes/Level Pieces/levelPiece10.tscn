@@ -1,13 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnjfsfokreb08"]
+[gd_scene load_steps=6 format=3 uid="uid://bergbmerj3we4"]
 
-[ext_resource type="Script" path="res://Scripts/levelPiece.gd" id="1_b0qgn"]
-[ext_resource type="PackedScene" uid="uid://d3ome5y8hnkuy" path="res://scenes/Dinheiro.tscn" id="2_10i66"]
-[ext_resource type="Texture2D" uid="uid://ck6ogk58eskyy" path="res://assets/island of loss/Map Tielset.png" id="2_pbyxt"]
-[ext_resource type="PackedScene" uid="uid://bfsb067t2j8fk" path="res://scenes/killzone.tscn" id="3_jwiwu"]
-[ext_resource type="PackedScene" uid="uid://db33h4amsaocb" path="res://scenes/coin.tscn" id="4_q0dpa"]
+[ext_resource type="Script" path="res://Scripts/levelPiece.gd" id="1_d6epo"]
+[ext_resource type="Texture2D" uid="uid://ck6ogk58eskyy" path="res://assets/island of loss/Map Tielset.png" id="2_apk67"]
+[ext_resource type="PackedScene" uid="uid://bfsb067t2j8fk" path="res://scenes/killzone.tscn" id="3_tmw3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhtud"]
-texture = ExtResource("2_pbyxt")
+texture = ExtResource("2_apk67")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -109,9 +107,6 @@ texture = ExtResource("2_pbyxt")
 6:9/0 = 0
 7:9/0 = 0
 8:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
 1:10/0 = 0
 2:10/0 = 0
 3:10/0 = 0
@@ -123,9 +118,6 @@ texture = ExtResource("2_pbyxt")
 11:10/0 = 0
 12:10/0 = 0
 14:10/0 = 0
-16:10/0 = 0
-17:10/0 = 0
-18:10/0 = 0
 1:11/0 = 0
 2:11/0 = 0
 3:11/0 = 0
@@ -138,9 +130,6 @@ texture = ExtResource("2_pbyxt")
 11:11/0 = 0
 12:11/0 = 0
 14:11/0 = 0
-16:11/0 = 0
-17:11/0 = 0
-18:11/0 = 0
 1:12/0 = 0
 2:12/0 = 0
 3:12/0 = 0
@@ -223,23 +212,22 @@ texture = ExtResource("2_pbyxt")
 4:17/size_in_atlas = Vector2i(1, 2)
 4:17/0 = 0
 4:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.5, -15, 7.5, -15.5, 8, 14.5, -7, 14.5)
+16:9/size_in_atlas = Vector2i(3, 3)
+16:9/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_njs01"]
 physics_layer_0/collision_layer = 2
 sources/2 = SubResource("TileSetAtlasSource_qhtud")
 
 [node name="LevelPiece" type="Node2D"]
-script = ExtResource("1_b0qgn")
+script = ExtResource("1_d6epo")
 metadata/_edit_horizontal_guides_ = [160.0]
-
-[node name="Dinheiro" parent="." instance=ExtResource("2_10i66")]
-position = Vector2(86, 145)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_njs01")
 format = 2
 layer_0/name = "terrains"
-layer_0/tile_data = PackedInt32Array(327680, 393218, 5, 655360, 393218, 5, 983040, 393218, 5, 327681, 393218, 5, 655361, 393218, 5, 983041, 393218, 5, 327682, 393218, 5, 655362, 393218, 5, 983042, 393218, 5, 327683, 393218, 5, 655363, 393218, 5, 983043, 393218, 5, 327684, 393218, 5, 655364, 393218, 5, 983044, 393218, 5, 327685, 393218, 5, 655365, 393218, 5, 983045, 393218, 5, 327686, 393218, 5, 655366, 393218, 5, 983046, 393218, 5, 327687, 393218, 5, 655367, 393218, 5, 983047, 393218, 5, 327688, 393218, 5, 655368, 393218, 5, 983048, 393218, 5, 327689, 393218, 5, 655369, 393218, 5, 983049, 393218, 5, 327690, 393218, 5, 655370, 393218, 5, 983050, 393218, 5, 327691, 393218, 5, 655371, 393218, 5, 983051, 393218, 5, 327692, 393218, 5, 655372, 393218, 5, 983052, 393218, 5, 327693, 393218, 5, 655373, 393218, 5, 983053, 393218, 5, 327694, 393218, 5, 655374, 393218, 5, 983054, 393218, 5, 327695, 393218, 5, 655375, 393218, 5, 983055, 393218, 5, 327696, 393218, 5, 655376, 393218, 5, 983056, 393218, 5, 327697, 393218, 5, 655377, 393218, 5, 983057, 393218, 5, 327698, 393218, 5, 655378, 393218, 5, 983058, 393218, 5, 327699, 393218, 5, 655379, 393218, 5, 983059, 393218, 5, 327700, 393218, 5, 655380, 393218, 5, 983060, 393218, 5, 917518, 786434, 13, 851982, 720898, 13, 786446, 786434, 13, 589842, 458754, 11, 524306, 786434, 15, 458770, 458754, 11, 262151, 458754, 11, 196615, 786434, 15, 917517, 720898, 13, 851981, 786434, 13, 786445, 720898, 13, 589843, 720898, 15, 524307, 720898, 15, 262152, 720898, 15, 196616, 720898, 15, 458771, 786434, 15)
+layer_0/tile_data = PackedInt32Array(327680, 983042, 3, 655360, 983042, 3, 983040, 983042, 3, 327681, 983042, 3, 983041, 983042, 3, 327682, 983042, 3, 983042, 983042, 3, 327683, 983042, 3, 655363, 1114114, 3, 983043, 1179650, 3, 327684, 983042, 3, 655364, 1179650, 3, 983044, 1048578, 3, 327685, 983042, 3, 655365, 983042, 3, 983045, 983042, 3, 327686, 1114114, 3, 655366, 983042, 3, 983046, 983042, 3, 327687, 1179650, 3, 655367, 1048578, 3, 983047, 983042, 3, 327688, 983042, 3, 655368, 983042, 3, 983048, 983042, 3, 327689, 983042, 3, 655369, 983042, 3, 983049, 327682, 6, 655370, 1048578, 3, 983050, 1114114, 3, 655371, 1114114, 3, 983051, 983042, 3, 655372, 983042, 3, 983052, 983042, 3, 655373, 983042, 3, 983053, 1114114, 3, 655374, 983042, 3, 983054, 983042, 3, 655375, 983042, 3, 983055, 983042, 3, 655376, 983042, 3, 983056, 983042, 3, 655377, 983042, 3, 983057, 327682, 6, 655378, 983042, 3, 983058, 983042, 3, 655379, 983042, 3, 983059, 983042, 3, 655380, 983042, 3, 983060, 983042, 3, 327690, 983042, 3, 327691, 1114114, 3, 327692, 983042, 3, 327693, 983042, 3, 327694, 983042, 3, 327695, 1114114, 3, 327699, 983042, 3, 327700, 983042, 3, 327698, 983042, 3, 327697, 983042, 3, 327696, 983042, 3, 655361, 983042, 3, 655362, 983042, 3)
 layer_1/name = "decors"
 layer_1/tile_data = PackedInt32Array(65541, 65537, 1, 262149, 196609, 6, 262148, 131073, 6, 262151, 458753, 6, 262152, 524289, 6, 65555, 65537, 1, 262163, 196609, 6, 262162, 131073, 6)
 
@@ -254,17 +242,18 @@ color = Color(0, 0, 1, 1)
 
 [node name="Killzones" type="Node2D" parent="."]
 
-[node name="killzone" parent="Killzones" instance=ExtResource("3_jwiwu")]
-position = Vector2(128, 70)
+[node name="killzone" parent="Killzones" instance=ExtResource("3_tmw3f")]
+position = Vector2(129, 145)
 scale = Vector2(-2.08258, -1.23826)
 
-[node name="killzone3" parent="Killzones" instance=ExtResource("3_jwiwu")]
-position = Vector2(224, 231)
-scale = Vector2(2.06428, 1.1525)
+[node name="killzone2" parent="Killzones" instance=ExtResource("3_tmw3f")]
+position = Vector2(281, 230)
+scale = Vector2(-2.08258, -1.23826)
 
-[node name="killzone4" parent="Killzones" instance=ExtResource("3_jwiwu")]
-position = Vector2(304, 152)
-scale = Vector2(2.2, 1)
+[node name="killzone3" parent="Killzones" instance=ExtResource("3_tmw3f")]
+position = Vector2(267, 63)
+scale = Vector2(-2.08258, -1.23826)
 
-[node name="coin" parent="." instance=ExtResource("4_q0dpa")]
-position = Vector2(126, 147)
+[node name="killzone4" parent="Killzones" instance=ExtResource("3_tmw3f")]
+position = Vector2(59, 62)
+scale = Vector2(-2.08258, -1.23826)
